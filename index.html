@@ -5,217 +5,233 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GYAN DARSHAN COMPUTER COURSES</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            width: 100vw;
-            margin: 0;
-            padding: 0;
-            background: url('./assets/images/night\ attractive\ picture.png') no-repeat center center fixed;
-            background-size: cover;
-            background-color: orange;
-            overflow-y: auto;
-            overflow-x: hidden;
-            font-family: Arial, sans-serif;
-            flex-direction: column;
-        }
+       html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('./assets/images/night\ attractive\ picture.png') no-repeat center center fixed; /* Add your image path here */
+    background-size: cover; /* Ensure the image covers the screen */
+    background-color: orange;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+}
 
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transform: rotate(-45deg);
-            z-index: -1;
-        }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* Allow vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    flex-direction: column;
+}
 
-        .star {
-            --star-color: white;
-            --star-tail-length: 6em;
-            --star-tail-height: 2px;
-            --star-width: calc(var(--star-tail-length) / 6);
-            --fall-duration: 9s;
-            --tail-fade-duration: var(--fall-duration);
-            position: absolute;
-            top: var(--top-offset);
-            left: 0;
-            width: var(--star-tail-length);
-            height: var(--star-tail-height);
-            color: var(--star-color);
-            background: linear-gradient(45deg, currentColor, transparent);
-            border-radius: 50%;
-            filter: drop-shadow(0 0 6px currentColor);
-            transform: translate3d(104em, 0, 0);
-            animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
-        }
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-45deg);
+    z-index: -1;
+}
 
-        @media screen and (max-width: 750px) {
-            body {
-                flex-direction: column;
-                padding: 10px;
-            }
+.star {
+    --star-color: white;
+    --star-tail-length: 6em;
+    --star-tail-height: 2px;
+    --star-width: calc(var(--star-tail-length) / 6);
+    --fall-duration: 9s;
+    --tail-fade-duration: var(--fall-duration);
+    position: absolute;
+    top: var(--top-offset);
+    left: 0;
+    width: var(--star-tail-length);
+    height: var(--star-tail-height);
+    color: var(--star-color);
+    background: linear-gradient(45deg, currentColor, transparent);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px currentColor);
+    transform: translate3d(104em, 0, 0);
+    animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+}
 
-            .star {
-                animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
-            }
-        }
+@media screen and (max-width: 750px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+    }
 
-        @keyframes fall {
-            to {
-                transform: translate3d(-30em, 0, 0);
-            }
-        }
+    .star {
+        animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
+    }
+}
 
-        @keyframes tail-fade {
-            0%,
-            50% {
-                width: var(--star-tail-length);
-                opacity: 1;
-            }
+@keyframes fall {
+    to {
+        transform: translate3d(-30em, 0, 0);
+    }
+}
 
-            70%,
-            80% {
-                width: 0;
-                opacity: 0.4;
-            }
+@keyframes tail-fade {
+    0%,
+    50% {
+        width: var(--star-tail-length);
+        opacity: 1;
+    }
 
-            100% {
-                width: 0;
-                opacity: 0;
-            }
-        }
+    70%,
+    80% {
+        width: 0;
+        opacity: 0.4;
+    }
 
-        .star::before,
-        .star::after {
-            position: absolute;
-            content: "";
-            top: 0;
-            left: calc(var(--star-width) / -2);
-            width: var(--star-width);
-            height: 100%;
-            background: linear-gradient(45deg, transparent, currentColor, transparent);
-            border-radius: inherit;
-            animation: blink 2s linear infinite;
-        }
+    100% {
+        width: 0;
+        opacity: 0;
+    }
+}
 
-        .star::before {
-            transform: rotate(45deg);
-        }
+.star::before,
+.star::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: calc(var(--star-width) / -2);
+    width: var(--star-width);
+    height: 100%;
+    background: linear-gradient(45deg, transparent, currentColor, transparent);
+    border-radius: inherit;
+    animation: blink 2s linear infinite;
+}
 
-        .star::after {
-            transform: rotate(-45deg);
-        }
+.star::before {
+    transform: rotate(45deg);
+}
 
-        @keyframes blink {
-            50% {
-                opacity: 0.6;
-            }
-        }
+.star::after {
+    transform: rotate(-45deg);
+}
 
-        .main-heading {
-            text-align: center;
-            margin-top: 20px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            font-size: 2rem;
-            font-weight: bold;
-        }
+@keyframes blink {
+    50% {
+        opacity: 0.6;
+    }
+}
 
-        .image-container {
-            text-align: center;
-            margin: 20px 0;
-        }
+.main-heading {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    font-size: 2rem;
+    font-weight: bold;
+}
 
-        .sub-title {
-            text-align: center;
-            margin-bottom: 20px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-        }
+.image-container {
+    text-align: center;
+    margin: 20px 0;
+}
 
-        .buttons-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
+.sub-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
 
-        @keyframes neon-border {
-            0% {
-                box-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FFA500, 0 0 20px #FFA500;
-            }
-            50% {
-                box-shadow: 0 0 10px #FF4500, 0 0 20px #FF4500, 0 0 30px #FF4500, 0 0 40px #FF4500;
-            }
-            100% {
-                box-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FFA500, 0 0 20px #FFA500;
-            }
-        }
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
 
-        @keyframes neon-border {
-            0% {
-                box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;
-            }
-            33% {
-                box-shadow: 0 0 10px #800080, 0 0 20px #800080, 0 0 30px #800080;
-            }
-            66% {
-                box-shadow: 0 0 10px #FF4500, 0 0 20px #FF4500, 0 0 30px #FF4500;
-            }
-            100% {
-                box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;
-            }
-        }
+@keyframes neon-border {
+    0% {
+        box-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FFA500, 0 0 20px #FFA500;
+    }
+    50% {
+        box-shadow: 0 0 10px #FF4500, 0 0 20px #FF4500, 0 0 30px #FF4500, 0 0 40px #FF4500;
+    }
+    100% {
+        box-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FFA500, 0 0 20px #FFA500;
+    }
+}
 
-        .button {
-            background-color: black;
-            color: #FFA500;
-            padding: 10px 20px;
-            font-size: 18px;
-            font-weight: bold;
-            border: 2px solid transparent;
-            border-radius: 50px;
-            cursor: pointer;
-            width: 300px; /* Set a fixed width */
-            height: 80px; /* Set a fixed height */
-            animation: neon-border 3s infinite alternate;
-            transition: all 0.3s ease-in-out;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+@keyframes neon-border {
+    0% {
+        box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;
+    }
+    33% {
+        box-shadow: 0 0 10px #800080, 0 0 20px #800080, 0 0 30px #800080;
+    }
+    66% {
+        box-shadow: 0 0 10px #FF4500, 0 0 20px #FF4500, 0 0 30px #FF4500;
+    }
+    100% {
+        box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;
+    }
+}
 
-        .button:hover {
-            background-color: #222;
-            color: white;
-            animation: none;
-            box-shadow: 0 0 25px #FF4500, 0 0 50px #800080, 0 0 75px #00FFFF;
-        }
+.button {
+    background-color: black;
+    color: #FFA500;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 300px; /* Set a fixed width */
+    height: 80px; /* Set a fixed height */
+    animation: neon-border 3s infinite alternate;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .button h3, .button p {
-            color: #FFD700;
-            font-size: 15px; /* Ensure text size consistency */
-            margin: 0;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            padding: 0 10px; /* Adjust padding for consistency */
-        }
+.button:hover {
+    background-color: #222;
+    color: white;
+    animation: none;
+    box-shadow: 0 0 25px #FF4500, 0 0 50px #800080, 0 0 75px #00FFFF;
+}
 
-        .button h3 {
-            border-right: 2px solid #FFD700; /* Gold vertical line */
-            padding-right: 20px; /* Add space to the right for the line */
-        }
+.button h3, .button p {
+    color: #FFD700;
+    font-size: 15px; /* Ensure text size consistency */
+    margin: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 10px; /* Adjust padding for consistency */
+}
 
-        .button p {
-            padding-left: 20px; /* Add space to the left of the <p> */
-        }
+.button h3 {
+    border-right: 2px solid #FFD700; /* Gold vertical line */
+    padding-right: 20px; /* Add space to the right for the line */
+}
 
+.button p {
+    padding-left: 20px; /* Add space to the left of the <p> */
+}
+
+/* Prevents zooming in and out */
+body, html {
+    touch-action: none;
+}
 
 
         /* Increase the number of stars */
