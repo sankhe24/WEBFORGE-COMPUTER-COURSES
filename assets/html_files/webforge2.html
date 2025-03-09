@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
     <style>
         /* ===== Google Font Import - Poppins ===== */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
@@ -24,11 +25,12 @@
             background: url('../images/night\ attractive\ picture.png') no-repeat center center;
             background-size: cover;
             font-family: 'Poppins', sans-serif;
-            overflow-x: hidden; /* Prevent horizontal overscrolling */
-            overflow-y: auto;   /* Allow vertical scrolling */
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
         .accordion {
+            height: auto;
             max-width: 800px;
             width: 100%;
             background: rgba(255, 255, 255, 0.8); /* Set background with transparency */
@@ -82,7 +84,7 @@
         }
 
         .accordion-content.open header i {
-            transform: rotate(45deg); /* Rotate icon when open */
+            transform: rotate(180deg); /* Rotate icon when open */
         }
 
         .accordion-content .description {
@@ -228,55 +230,10 @@
             <span class="title">Installation of Windows OS</span>
             <i class="fa-solid fa-plus"></i>
         </header>
-    </header>
-<p class="description">
-Learn the step-by-step process of installing Windows OS for a fresh, customized computing experience.
-</p>
-</div>
-</div>
-
-<script type="text/javascript">
-    'use strict';
-
-    const accordionContent = document.querySelectorAll(".accordion-content");
-
-    accordionContent.forEach((item, index) => {
-        let header = item.querySelector("header");
-        header.addEventListener("click", () => {
-            item.classList.toggle("open");
-
-            let description = item.querySelector(".description");
-            if (item.classList.contains("open")) {
-                description.style.height = `${description.scrollHeight}px`;
-                item.querySelector("i").classList.replace("fa-plus", "fa-minus");
-            } else {
-                description.style.height = "0px";
-                item.querySelector("i").classList.replace("fa-minus", "fa-plus");
-            }
-            removeOpen(index);
-        });
-    });
-
-    function removeOpen(index1) {
-        accordionContent.forEach((item2, index2) => {
-            if (index1 != index2) {
-                item2.classList.remove("open");
-
-                let des = item2.querySelector(".description");
-                des.style.height = "0px";
-                item2.querySelector("i").classList.replace("fa-minus", "fa-plus");
-            }
-        });
-    }
-</script>
-</body>
-
-</html>
-</header>
-<p class="description">
-Learn the step-by-step process of installing Windows OS for a fresh, customized computing experience.
-</p>
-</div>
+        <p class="description">
+            Learn the step-by-step process of installing Windows OS for a fresh, customized computing experience.
+        </p>
+    </div>
 </div>
 
 <script type="text/javascript">
