@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+        /* ===== Google Font Import - Poppins ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('../images/night\ attractive\ picture.png') no-repeat center center;
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal overscrolling */
+            overflow-y: auto;   /* Allow vertical scrolling */
+        }
+
+        .accordion {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8); /* Set background with transparency */
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion .accordion-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 10px 0;
+            margin: 8px 0;
+            border-radius: 6px;
+            background: #f7d8bd;
+            border: 1px solid #fcbc84;
+            overflow: hidden;
+        }
+
+        .accordion-content.open {
+            padding-bottom: 5px;
+        }
+
+        .accordion-content header {
+            display: flex;
+            min-height: 40px;
+            padding: 5px 10px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s linear;
+        }
+
+        .accordion-content.open header {
+            min-height: 40px;
+        }
+
+        .accordion-content header .title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .accordion-content header i {
+            font-size: 20px;
+            color: #333;
+            transition: transform 0.2s;
+        }
+
+        .accordion-content.open header i {
+            transform: rotate(180deg); /* Rotate icon when open */
+        }
+
+        .accordion-content .description {
+            height: 0;
+            font-size: 16px;
+            color: #333;
+            font-weight: 400;
+            padding: 0 10px;
+            transition: all 0.2s linear;
+            overflow: hidden;
+        }
+
+        .accordion-content.open .description {
+            height: auto;
+            padding-bottom: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Python and Java Programming Course</title>
+</head>
+
+<body>
+<div class="accordion" id="accordion">
+    <div class="accordion-content">
+        <header>
+            <span class="title">Introduction to Programming Concepts</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Gain a solid foundation in programming principles, including variables, data types, control structures, and algorithms, applicable to both Python and Java.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Setting Up Development Environments</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Learn how to set up and configure development environments for Python and Java, including IDEs, compilers, and libraries.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Python Basics: Variables, Data Types, and Operators</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Understand the core concepts of Python, including variables, data types, and operators, to write basic programs.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Control Structures in Python: Loops and Conditional Statements</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Master the use of loops and conditional statements in Python to control the flow of your programs.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Functions and Modules in Python</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Learn how to create reusable code with functions and organize your code with modules in Python.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">File Handling and Exception Management in Python</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Explore techniques for reading from and writing to files in Python, and handle exceptions to make your programs more robust.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Object-Oriented Programming (OOP) in Python</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Delve into the principles of object-oriented programming in Python, including classes, objects, inheritance, and polymorphism.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Data Structures and Algorithms in Python</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Study common data structures and algorithms in Python to solve complex problems efficiently.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Introduction to Java Syntax and Structure</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Get acquainted with the syntax and structure of Java, and write basic Java programs.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Control Structures in Java: Loops and Conditionals</span>
+            <i class="fa-solid fa-plus"></i>
+                  </header>
+        <p class="description">
+            Learn to use loops and conditional statements in Java to control the flow of your programs.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Object-Oriented Programming (OOP) in Java</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Master the principles of object-oriented programming in Java, including classes, objects, inheritance, and polymorphism.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Java File Handling and Exception Management</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Discover techniques for reading from and writing to files in Java, and manage exceptions to enhance program robustness.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Multi-threading and Concurrency in Java</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Understand the concepts of multi-threading and concurrency in Java to create efficient and responsive programs.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Database Connectivity in Python and Java</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Learn how to connect to databases using Python and Java, and perform CRUD (Create, Read, Update, Delete) operations.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Project Work: Creating Applications Using Python and Java</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Apply your knowledge by working on projects that involve creating applications using both Python and Java.
+        </p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    'use strict';
+
+    const accordionContent = document.querySelectorAll(".accordion-content");
+
+    accordionContent.forEach((item, index) => {
+        let header = item.querySelector("header");
+        header.addEventListener("click", () => {
+            item.classList.toggle("open");
+
+            let description = item.querySelector(".description");
+            if (item.classList.contains("open")) {
+                description.style.height = `${description.scrollHeight}px`;
+                item.querySelector("i").classList.replace("fa-plus", "fa-minus");
+            } else {
+                description.style.height = "0px";
+                item.querySelector("i").classList.replace("fa-minus", "fa-plus");
+            }
+            removeOpen(index);
+        });
+    });
+
+    function removeOpen(index1) {
+        accordionContent.forEach((item2, index2) => {
+            if (index1 != index2) {
+                item2.classList.remove("open");
+
+                let des = item2.querySelector(".description");
+                des.style.height = "0px";
+                item2.querySelector("i").classList.replace("fa-minus", "fa-plus");
+            }
+        });
+    }
+</script>
+</body>
+
+</html>
+
+        
