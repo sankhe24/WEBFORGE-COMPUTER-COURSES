@@ -144,21 +144,30 @@ body {
     overflow: hidden;
 }
 
-.star {
+.star, .shooting-star {
     position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.star {
     width: 2px;
     height: 2px;
-    background: white;
-    animation: shootingStar 1s ease-out infinite;
+}
+
+.shooting-star {
+    width: 2px;
+    height: 2px;
+    animation: shootingStar 2s linear infinite;
 }
 
 @keyframes shootingStar {
     0% {
-        transform: translateY(-1000px) translateX(0);
+        transform: translateX(0) translateY(0);
         opacity: 1;
     }
     100% {
-        transform: translateY(1000px) translateX(500px);
+        transform: translateX(100vw) translateY(100vh);
         opacity: 0;
     }
 }
@@ -235,19 +244,29 @@ body {
     <br>
     <br>
      <script type="text/javascript">
-         function createStar() {
+    function createStar() {
     const star = document.createElement('div');
     star.classList.add('star');
     star.style.top = `${Math.random() * window.innerHeight}px`;
     star.style.left = `${Math.random() * window.innerWidth}px`;
     document.getElementById('star-field').appendChild(star);
+}
+
+function createShootingStar() {
+    const shootingStar = document.createElement('div');
+    shootingStar.classList.add('shooting-star');
+    shootingStar.style.top = `${Math.random() * window.innerHeight}px`;
+    shootingStar.style.left = `${Math.random() * window.innerWidth / 2}px`;
+    document.getElementById('star-field').appendChild(shootingStar);
 
     setTimeout(() => {
-        star.remove();
-    }, 1000);
+        shootingStar.remove();
+    }, 2000);
 }
 
 setInterval(createStar, 100);
+setInterval(createShootingStar, 2000);
+
 
      </script>
 </body>
