@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+        /* ===== Google Font Import - Poppins ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('../images/night\ attractive\ picture.png') no-repeat center center;
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal overscrolling */
+            overflow-y: auto;   /* Allow vertical scrolling */
+        }
+
+        .accordion {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8); /* Set background with transparency */
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion .accordion-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 10px 0;
+            margin: 8px 0;
+            border-radius: 6px;
+            background: #f7d8bd;
+            border: 1px solid #fcbc84;
+            overflow: hidden;
+        }
+
+        .accordion-content.open {
+            padding-bottom: 5px;
+        }
+
+        .accordion-content header {
+            display: flex;
+            min-height: 40px;
+            padding: 5px 10px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s linear;
+        }
+
+        .accordion-content.open header {
+            min-height: 40px;
+        }
+
+        .accordion-content header .title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .accordion-content header i {
+            font-size: 20px;
+            color: #333;
+            transition: transform 0.2s;
+        }
+
+        .accordion-content.open header i {
+            transform: rotate(180deg); /* Rotate icon when open */
+        }
+
+        .accordion-content .description {
+            height: 0;
+            font-size: 16px;
+            color: #333;
+            font-weight: 400;
+            padding: 0 10px;
+            transition: all 0.2s linear;
+            overflow: hidden;
+        }
+
+        .accordion-content.open .description {
+            height: auto;
+            padding-bottom: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Modern Accordion</title>
+</head>
+
+<body>
+<div class="accordion" id="accordion">
+    <div class="accordion-content">
+        <header>
+            <span class="title">Understanding Core Components</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Grasp the essential parts of a computer to make informed decisions about upgrades and troubleshooting.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Motherboard and Its Components</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Explore the motherboard's role as the central hub, connecting all computer parts for seamless communication.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Graphics Cards and SMPS (Switched-Mode Power Supply)</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Learn about the GPU for visual processing and the SMPS for efficient power distribution.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">CPU (Central Processing Unit)</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Understand the CPU's function as the brain of the computer, executing instructions and managing tasks.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Cache Memory: Levels L1, L2, and L3</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Discover how cache memory speeds up data access and enhances overall system performance.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Storage and Compatibility</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Learn about various storage options and their compatibility to ensure efficient data management.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Working of SD Cards</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Understand how SD cards provide portable and expandable storage for various devices.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">CPU Sockets and Their Compatibility</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Identify different CPU sockets and their compatibility with processors for optimal performance.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">System Design and Customization</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Explore the importance of customizing systems to meet specific needs and preferences.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Modular vs. Prebuilt PCs</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Compare modular and prebuilt PCs to determine the best option for performance and flexibility.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">How to Choose Components for a PC Build</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>            <p class="description">
+                Get guidelines for selecting the right components to build a high-performance PC.
+            </p>
+        </div>
+        <div class="accordion-content">
+            <header>
+                <span class="title">Overclocking and Thermal Management</span>
+                <i class="fa-solid fa-plus"></i>
+            </header>
+            <p class="description">
+                Learn about overclocking to boost performance and the importance of managing heat.
+            </p>
+        </div>
+        <div class="accordion-content">
+            <header>
+                <span class="title">Cooling Systems</span>
+                <i class="fa-solid fa-plus"></i>
+            </header>
+            <p class="description">
+                Explore various cooling solutions to maintain optimal temperatures and prevent overheating.
+            </p>
+        </div>
+        <div class="accordion-content">
+            <header>
+                <span class="title">Building and Maintenance</span>
+                <i class="fa-solid fa-plus"></i>
+            </header>
+            <p class="description">
+                Gain insights into assembling and maintaining PCs to ensure longevity and peak performance.
+            </p>
+        </div>
+        <div class="accordion-content">
+            <header>
+                <span class="title">How to Build a Future-Proof PC</span>
+                <i class="fa-solid fa-plus"></i>
+            </header>
+            <p class="description">
+                Learn strategies for building a PC that can adapt to future technological advancements.
+            </p>
+        </div>
+        <div class="accordion-content">
+            <header>
+                <span class="title">How to Upgrade Your PC</span>
+                <i class="fa-solid fa-plus"></i>
+            </header>
+            <p class="description">
+                Discover the best practices for upgrading components to enhance your PC's performance.
+            </p>
+        </div>
+        <div class="accordion-content">
+            <header>
+                <span class="title">Drivers and Software Installation After PC Builds</span>
+                <i class="fa-solid fa-plus"></i>
+            </header>
+            <p class="description">
+                Understand the importance of installing drivers and software for optimal functionality post-build.
+            </p>
+        </div>
+        <div class="accordion-content">
+            <header>
+                <span class="title">Comparative Analysis</span>
+                <i class="fa-solid fa-plus"></i>
+            </header>
+            <p class="description">
+                Learn the differences between NVIDIA, AMD, and Intel Arc GPUs to make informed decisions for your graphics needs.
+            </p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        'use strict';
+
+        const accordionContent = document.querySelectorAll(".accordion-content");
+
+        accordionContent.forEach((item, index) => {
+            let header = item.querySelector("header");
+            header.addEventListener("click", () => {
+                item.classList.toggle("open");
+
+                let description = item.querySelector(".description");
+                if (item.classList.contains("open")) {
+                    description.style.height = `${description.scrollHeight}px`;
+                    item.querySelector("i").classList.replace("fa-plus", "fa-minus");
+                } else {
+                    description.style.height = "0px";
+                    item.querySelector("i").classList.replace("fa-minus", "fa-plus");
+                }
+                removeOpen(index);
+            });
+        });
+
+        function removeOpen(index1) {
+            accordionContent.forEach((item2, index2) => {
+                if (index1 != index2) {
+                    item2.classList.remove("open");
+
+                    let des = item2.querySelector(".description");
+                    des.style.height = "0px";
+                    item2.querySelector("i").classList.replace("fa-minus", "fa-plus");
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
+
