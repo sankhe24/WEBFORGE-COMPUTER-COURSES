@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+        /* ===== Google Font Import - Poppins ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('../images/night\ attractive\ picture.png') no-repeat center center;
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal overscrolling */
+            overflow-y: auto;   /* Allow vertical scrolling */
+        }
+
+        .accordion {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8); /* Set background with transparency */
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion .accordion-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 10px 0;
+            margin: 8px 0;
+            border-radius: 6px;
+            background: #f7d8bd;
+            border: 1px solid #fcbc84;
+            overflow: hidden;
+        }
+
+        .accordion-content.open {
+            padding-bottom: 5px;
+        }
+
+        .accordion-content header {
+            display: flex;
+            min-height: 40px;
+            padding: 5px 10px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s linear;
+        }
+
+        .accordion-content.open header {
+            min-height: 40px;
+        }
+
+        .accordion-content header .title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .accordion-content header i {
+            font-size: 20px;
+            color: #333;
+            transition: transform 0.2s;
+        }
+
+        .accordion-content.open header i {
+            transform: rotate(45deg); /* Rotate icon when open */
+        }
+
+        .accordion-content .description {
+            height: 0;
+            font-size: 16px;
+            color: #333;
+            font-weight: 400;
+            padding: 0 10px;
+            transition: all 0.2s linear;
+            overflow: hidden;
+        }
+
+        .accordion-content.open .description {
+            height: auto;
+            padding-bottom: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Arduino, C, C++, and Robotics Course</title>
+</head>
+
+<body>
+<div class="accordion" id="accordion">
+    <div class="accordion-content">
+        <header>
+            <span class="title">Introduction to Embedded Systems</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Gain an understanding of embedded systems, their applications, and the role they play in modern technology.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Getting Started with Arduino: Tools and Setup</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Learn how to set up and configure your Arduino environment, including installing the Arduino IDE and connecting hardware components.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Basic Programming with Arduino IDE</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Understand the basics of programming in Arduino IDE, including writing your first program, uploading it to the Arduino board, and debugging.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Understanding C Basics: Variables, Data Types, and Operators</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Learn the fundamentals of the C programming language, including variables, data types, and operators, to write basic programs.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Control Structures in C: Loops and Conditional Statements</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Master the use of control structures in C, such as loops and conditional statements, to control the flow of your programs.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Introduction to C++ and Its Applications</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Get acquainted with the C++ programming language, its syntax, and its applications in various fields.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Object-Oriented Programming (OOP) in C++</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Delve into the principles of object-oriented programming in C++, including classes, objects, inheritance, and polymorphism.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Interfacing Sensors and Actuators with Arduino</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Learn how to interface various sensors and actuators with your Arduino to create interactive projects.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Understanding Robotics: Basic Concepts and Components</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Gain insights into the fundamental concepts of robotics, including the components that make up a robot and their functions.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Programming Robot Movements and Behaviors</span>
+                        <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Explore how to program robots to perform specific movements and behaviors using Arduino and C/C++.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Integrating Arduino with C and C++ for Robotics Projects</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Learn how to integrate Arduino with C and C++ to develop complex robotics projects.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Wireless Communication in Robotics (Bluetooth, Wi-Fi)</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Discover the techniques for enabling wireless communication in robotics using Bluetooth and Wi-Fi modules.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Introduction to IoT and Robotics Integration</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Understand the basics of the Internet of Things (IoT) and how it can be integrated with robotics for advanced applications.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Project Work: Building a Functional Robot</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Apply your knowledge by working on a project to build a fully functional robot using Arduino, C, and C++.
+        </p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    'use strict';
+
+    const accordionContent = document.querySelectorAll(".accordion-content");
+
+    accordionContent.forEach((item, index) => {
+        let header = item.querySelector("header");
+        header.addEventListener("click", () => {
+            item.classList.toggle("open");
+
+            let description = item.querySelector(".description");
+            if (item.classList.contains("open")) {
+                description.style.height = `${description.scrollHeight}px`;
+                item.querySelector("i").classList.replace("fa-plus", "fa-minus");
+            } else {
+                description.style.height = "0px";
+                item.querySelector("i").classList.replace("fa-minus", "fa-plus");
+            }
+            removeOpen(index);
+        });
+    });
+
+    function removeOpen(index1) {
+        accordionContent.forEach((item2, index2) => {
+            if (index1 != index2) {
+                item2.classList.remove("open");
+
+                let des = item2.querySelector(".description");
+                des.style.height = "0px";
+                item2.querySelector("i").classList.replace("fa-minus", "fa-plus");
+            }
+        });
+    }
+</script>
+</body>
+
+</html>
