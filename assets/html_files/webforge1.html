@@ -6,208 +6,217 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-            padding: 10px;
-            background: url('../images/night attractive picture.png') no-repeat center center fixed; /* Add your image path here */
-            background-size: cover; /* Ensure the image covers the screen */
-        }
+     html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrolling */
+    display: flex; /* Center content vertically */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    background: url('path/to/your/image.jpg') no-repeat center center fixed; /* Add your image path here */
+    background-size: cover; /* Ensure the image covers the screen */
+}
 
-        .accordion {
-            height: auto;
-            max-width: 600px; /* Reduced max-width for a smaller accordion */
-            width: 100%;
-            opacity: 0.8;
-            margin: 0 auto;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-            background-color: rgba(255, 255, 255, 0.9); /* Add a white background with transparency for better readability */
-        }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+}
 
-        .accordion .accordion-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 10px 0;
-            margin: 8px 0;
-            border-radius: 6px;
-            background: #f7d8bd;
-            border: 1px solid #fcbc84;
-            overflow: hidden;
-        }
+.accordion {
+    height: auto;
+    max-width: 600px; /* Reduced max-width for a smaller accordion */
+    width: 100%;
+    opacity: 0.8;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9); /* Add a white background with transparency for better readability */
+}
 
-        .accordion-content.open {
-            padding-bottom: 5px;
-        }
+.accordion .accordion-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 10px 0;
+    margin: 8px 0;
+    border-radius: 6px;
+    background: #f7d8bd;
+    border: 1px solid #fcbc84;
+    overflow: hidden;
+}
 
-        .accordion-content header {
-            display: flex;
-            min-height: 20px;
-            padding: 5px 10px;
-            cursor: pointer;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.2s linear;
-        }
+.accordion-content.open {
+    padding-bottom: 5px;
+}
 
-        .accordion-content.open header {
-            min-height: 40px;
-        }
+.accordion-content header {
+    display: flex;
+    min-height: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s linear;
+}
 
-        .accordion-content header .title {
-            font-size: 18px;
-            font-weight: 500;
-            color: #333;
-        }
+.accordion-content.open header {
+    min-height: 40px;
+}
 
-        .accordion-content header i {
-            font-size: 20px;
-            color: #333;
-            transition: transform 0.2s;
-        }
+.accordion-content header .title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
 
-        .accordion-content.open header i {
-            transform: rotate(180deg);
-        }
+.accordion-content header i {
+    font-size: 20px;
+    color: #333;
+    transition: transform 0.2s;
+}
 
-        .accordion-content .description {
-            height: 0;
-            font-size: 16px;
-            color: #333;
-            font-weight: 400;
-            padding: 0 10px;
-            transition: all 0.2s linear;
-            overflow: hidden;
-        }
+.accordion-content.open header i {
+    transform: rotate(180deg);
+}
 
-        .accordion-content.open .description {
-            height: auto;
-            padding-bottom: 5px;
-        }
+.accordion-content .description {
+    height: 0;
+    font-size: 16px;
+    color: #333;
+    font-weight: 400;
+    padding: 0 10px;
+    transition: all 0.2s linear;
+    overflow: hidden;
+}
 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+.accordion-content.open .description {
+    height: auto;
+    padding-bottom: 5px;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transform: rotate(-45deg);
-            z-index: -1;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        .star {
-            --star-color: white;
-            --star-tail-length: 6em;
-            --star-tail-height: 2px;
-            --star-width: calc(var(--star-tail-length) / 6);
-            --fall-duration: 9s;
-            --tail-fade-duration: var(--fall-duration);
-            position: absolute;
-            top: var(--top-offset);
-            left: 0;
-            width: var(--star-tail-length);
-            height: var(--star-tail-height);
-            color: var(--star-color);
-            background: linear-gradient(45deg, currentColor, transparent);
-            border-radius: 50%;
-            filter: drop-shadow(0 0 6px currentColor);
-            transform: translate3d(104em, 0, 0);
-            animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
-        }
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-45deg);
+    z-index: -1;
+}
 
-        @media screen and (max-width: 750px) {
-            body {
-                flex-direction: column;
-            }
+.star {
+    --star-color: white;
+    --star-tail-length: 6em;
+    --star-tail-height: 2px;
+    --star-width: calc(var(--star-tail-length) / 6);
+    --fall-duration: 9s;
+    --tail-fade-duration: var(--fall-duration);
+    position: absolute;
+    top: var(--top-offset);
+    left: 0;
+    width: var(--star-tail-length);
+    height: var(--star-tail-height);
+    color: var(--star-color);
+    background: linear-gradient(45deg, currentColor, transparent);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px currentColor);
+    transform: translate3d(104em, 0, 0);
+    animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+}
 
-            .accordion {
-                width: 100%;
-                padding: 5px;
-            }
+@media screen and (max-width: 750px) {
+    body {
+        flex-direction: column;
+    }
 
-            .accordion-content header .title,
-            .accordion-content header i {
-                font-size: 16px;
-            }
+    .accordion {
+        width: 100%;
+        padding: 5px;
+    }
 
-            .accordion-content .description {
-                font-size: 14px;
-            }
+    .accordion-content header .title,
+    .accordion-content header i {
+        font-size: 16px;
+    }
 
-            .star {
-                animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
-            }
-        }
+    .accordion-content .description {
+        font-size: 14px;
+    }
 
-        @keyframes fall {
-            to {
-                transform: translate3d(-30em, 0, 0);
-            }
-        }
+    .star {
+        animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
+    }
+}
 
-        @keyframes tail-fade {
-            0%,
-            50% {
-                width: var(--star-tail-length);
-                opacity: 1;
-            }
+@keyframes fall {
+    to {
+        transform: translate3d(-30em, 0, 0);
+    }
+}
 
-            70%,
-            80% {
-                width: 0;
-                opacity: 0.4;
-            }
+@keyframes tail-fade {
+    0%,
+    50% {
+        width: var(--star-tail-length);
+        opacity: 1;
+    }
 
-            100% {
-                width: 0;
-                opacity: 0;
-            }
-        }
+    70%,
+    80% {
+        width: 0;
+        opacity: 0.4;
+    }
 
-        .star::before,
-        .star::after {
-            position: absolute;
-            content: "";
-            top: 0;
-            left: calc(var(--star-width) / -2);
-            width: var(--star-width);
-            height: 100%;
-            background: linear-gradient(45deg, transparent, currentColor, transparent);
-            border-radius: inherit;
-            animation: blink 2s linear infinite;
-        }
+    100% {
+        width: 0;
+        opacity: 0;
+    }
+}
 
-        .star::before {
-            transform: rotate(45deg);
-        }
+.star::before,
+.star::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: calc(var(--star-width) / -2);
+    width: var(--star-width);
+    height: 100%;
+    background: linear-gradient(45deg, transparent, currentColor, transparent);
+    border-radius: inherit;
+    animation: blink 2s linear infinite;
+}
 
-        .star::after {
-            transform: rotate(-45deg);
-        }
+.star::before {
+    transform: rotate(45deg);
+}
 
-        @keyframes blink {
-            50% {
-                opacity: 0.6;
-            }
-        }
+.star::after {
+    transform: rotate(-45deg);
+}
 
-
+@keyframes blink {
+    50% {
+        opacity: 0.6;
+    }
+}
 
         .star:nth-child(1) { --star-tail-length: 7.19em; --top-offset: 98.73vh; --fall-duration: 9.245s; --fall-delay: 7.325s; }
         .star:nth-child(2) { --star-tail-length: 5.15em; --top-offset: 43.86vh; --fall-duration: 7.223s; --fall-delay: 1.247s; }
