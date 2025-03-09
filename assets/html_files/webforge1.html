@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 10px;
+            background: url('../images/night attractive picture.png') no-repeat center center fixed; /* Add your image path here */
+            background-size: cover; /* Ensure the image covers the screen */
+        }
+
+        .accordion {
+            height: auto;
+            max-width: 600px; /* Reduced max-width for a smaller accordion */
+            width: 100%;
+            opacity: 0.8;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.9); /* Add a white background with transparency for better readability */
+        }
+
+        .accordion .accordion-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 10px 0;
+            margin: 8px 0;
+            border-radius: 6px;
+            background: #f7d8bd;
+            border: 1px solid #fcbc84;
+            overflow: hidden;
+        }
+
+        .accordion-content.open {
+            padding-bottom: 5px;
+        }
+
+        .accordion-content header {
+            display: flex;
+            min-height: 20px;
+            padding: 5px 10px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s linear;
+        }
+
+        .accordion-content.open header {
+            min-height: 40px;
+        }
+
+        .accordion-content header .title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .accordion-content header i {
+            font-size: 20px;
+            color: #333;
+            transition: transform 0.2s;
+        }
+
+        .accordion-content.open header i {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content .description {
+            height: 0;
+            font-size: 16px;
+            color: #333;
+            font-weight: 400;
+            padding: 0 10px;
+            transition: all 0.2s linear;
+            overflow: hidden;
+        }
+
+        .accordion-content.open .description {
+            height: auto;
+            padding-bottom: 5px;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotate(-45deg);
+            z-index: -1;
+        }
+
+        .star {
+            --star-color: white;
+            --star-tail-length: 6em;
+            --star-tail-height: 2px;
+            --star-width: calc(var(--star-tail-length) / 6);
+            --fall-duration: 9s;
+            --tail-fade-duration: var(--fall-duration);
+            position: absolute;
+            top: var(--top-offset);
+            left: 0;
+            width: var(--star-tail-length);
+            height: var(--star-tail-height);
+            color: var(--star-color);
+            background: linear-gradient(45deg, currentColor, transparent);
+            border-radius: 50%;
+            filter: drop-shadow(0 0 6px currentColor);
+            transform: translate3d(104em, 0, 0);
+            animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+        }
+
+        @media screen and (max-width: 750px) {
+            body {
+                flex-direction: column;
+            }
+
+            .accordion {
+                width: 100%;
+                padding: 5px;
+            }
+
+            .accordion-content header .title,
+            .accordion-content header i {
+                font-size: 16px;
+            }
+
+            .accordion-content .description {
+                font-size: 14px;
+            }
+
+            .star {
+                animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
+            }
+        }
+
+        @keyframes fall {
+            to {
+                transform: translate3d(-30em, 0, 0);
+            }
+        }
+
+        @keyframes tail-fade {
+            0%,
+            50% {
+                width: var(--star-tail-length);
+                opacity: 1;
+            }
+
+            70%,
+            80% {
+                width: 0;
+                opacity: 0.4;
+            }
+
+            100% {
+                width: 0;
+                opacity: 0;
+            }
+        }
+
+        .star::before,
+        .star::after {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: calc(var(--star-width) / -2);
+            width: var(--star-width);
+            height: 100%;
+            background: linear-gradient(45deg, transparent, currentColor, transparent);
+            border-radius: inherit;
+            animation: blink 2s linear infinite;
+        }
+
+        .star::before {
+            transform: rotate(45deg);
+        }
+
+        .star::after {
+            transform: rotate(-45deg);
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+
+
+        .star:nth-child(1) { --star-tail-length: 7.19em; --top-offset: 98.73vh; --fall-duration: 9.245s; --fall-delay: 7.325s; }
+        .star:nth-child(2) { --star-tail-length: 5.15em; --top-offset: 43.86vh; --fall-duration: 7.223s; --fall-delay: 1.247s; }
+        .star:nth-child(3) { --star-tail-length: 6.45em; --top-offset: 12.07vh; --fall-duration: 11.089s; --fall-delay: 9.353s; }
+        .star:nth-child(4) { --star-tail-length: 5.23em; --top-offset: 43.33vh; --fall-duration: 11.088s; --fall-delay: 0.731s; }
+        .star:nth-child(5) { --star-tail-length: 6.33em; --top-offset: 75.17vh; --fall-duration: 9.477s; --fall-delay: 6.326s; }
+        .star:nth-child(6) { --star-tail-length: 5.97em; --top-offset: 21.72vh; --fall-duration: 6.165s; --fall-delay: 1.187s; }
+        .star:nth-child(7) { --star-tail-length: 6.27em; --top-offset: 6.29vh; --fall-duration: 9.19s; --fall-delay: 2.28s; }
+        .star:nth-child(8) { --star-tail-length: 7.29em; --top-offset: 81.49vh; --fall-duration: 7.852s; --fall-delay: 7.411s; }
+        .star:nth-child(9) { --star-tail-length: 6.47em; --top-offset: 65.68vh; --fall-duration: 10.843s; --fall-delay: 1.866s; }
+        .star:nth-child(10) { --star-tail-length: 5.49em; --top-offset: 85.29vh; --fall-duration: 8.765s; --fall-delay: 3.389s; }
+        .star:nth-child(11) { --star-tail-length: 6.66em; --top-offset: 73.83vh; --fall-duration: 6.566s; --fall-delay: 0.395s; }
+        .star:nth-child(12) { --star-tail-length: 6.16em; --top-offset: 46.14vh; --fall-duration: 9.432s; --fall-delay: 9.428s; }
+        .star:nth-child(13) { --star-tail-length: 5.97em; --top-offset: 1.95vh; --fall-duration: 8.192s; --fall-delay: 2.432s; }
+        .star:nth-child(14) { --star-tail-length: 5.01em; --top-offset: 81.92vh; --fall-duration: 11.942s; --fall-delay: 1.141s; }
+        .star:nth-child(15) { --star-tail-length: 5.82em; --top-offset: 14.29vh; --fall-duration: 10.972s; --fall-delay: 5.256s; }
+        .star:nth-child(16) { --star-tail-length: 6.48em; --top-offset: 37.41vh; --fall-duration: 8.055s; --fall-delay: 3.493s; }
+        .star:nth-child(17) { --star-tail-length: 5.66em; --top-offset: 80.85vh; --fall-duration: 7.298s; --fall-delay: 8.476s; }
+        .star:nth-child(18) { --star-tail-length: 7.01em; --top-offset: 93.86vh; --fall-duration: 7.174s; --fall-delay: 1.446s; }
+        .star:nth-child(19) { --star-tail-length: 7.33em; --top-offset: 42vh; --fall-duration: 8.257s; --fall-delay: 5.056s; }
+        .star:nth-child(20) { --star-tail-length: 7.04em; --top-offset: 53.12vh; --fall-duration: 6.773s; --fall-delay: 8.105s; }
+        .star:nth-child(21) { --star-tail-length: 6.11em; --top-offset: 16.02vh; --fall-duration: 7.667s; --fall-delay: 9.064s; }
+        .star:nth-child(22) { --star-tail-length: 5.4em; --top-offset: 10.91vh; --fall-duration: 7.619s; --fall-delay: 0.693s; }
+        .star:nth-child(23) { --star-tail-length: 6.23em; --top-offset: 57.58vh; --fall-duration: 7.819s; --fall-delay: 0.864s; }
+        /* Additional stars */
+        .star:nth-child(24) { --star-tail-length: 6.85em; --top-offset: 63.97vh; --fall-duration: 8.21s; --fall-delay: 5.85s; }
+        .star:nth-child(25) { --star-tail-length: 5.48em; --top-offset: 85.36vh; --fall-duration: 11.76s; --fall-delay: 4.679s; }
+        .star:nth-child(26) { --star-tail-length: 6.86em; --top-offset: 2.54vh; --fall-duration: 8.784s; --fall-delay: 5.54 }
+
+
+
+        .star:nth-child(27) { --star-tail-length: 5.12em; --top-offset: 23.45vh; --fall-duration: 9.61s; --fall-delay: 6.31s; }
+        .star:nth-child(28) { --star-tail-length: 6.75em; --top-offset: 55.23vh; --fall-duration: 10.12s; --fall-delay: 3.67s; }
+        .star:nth-child(29) { --star-tail-length: 5.96em; --top-offset: 74.82vh; --fall-duration: 8.34s; --fall-delay: 1.98s; }
+        .star:nth-child(30) { --star-tail-length: 7.14em; --top-offset: 15.67vh; --fall-duration: 11.08s; --fall-delay: 5.89s; }
+        .star:nth-child(31) { --star-tail-length: 6.54em; --top-offset: 33.12vh; --fall-duration: 7.79s; --fall-delay: 0.48s; }
+        .star:nth-child(32) { --star-tail-length: 6.12em; --top-offset: 87.93vh; --fall-duration: 9.56s; --fall-delay: 4.75s; }
+        .star:nth-child(33) { --star-tail-length: 5.87em; --top-offset: 27.44vh; --fall-duration: 10.33s; --fall-delay: 8.01s; }
+        .star:nth-child(34) { --star-tail-length: 5.71em; --top-offset: 38.25vh; --fall-duration: 7.58s; --fall-delay: 2.34s; }
+        .star:nth-child(35) { --star-tail-length: 6.99em; --top-offset: 62.73vh; --fall-duration: 6.83s; --fall-delay: 3.22s; }
+        .star:nth-child(36) { --star-tail-length: 5.23em; --top-offset: 52.51vh; --fall-duration: 10.04s; --fall-delay: 0.99s; }
+        .star:nth-child(37) { --star-tail-length: 6.44em; --top-offset: 18.74vh; --fall-duration: 9.02s; --fall-delay: 5.13s; }
+        .star:nth-child(38) { --star-tail-length: 7.16em; --top-offset: 76.88vh; --fall-duration: 8.96s; --fall-delay: 4.11s; }
+        .star:nth-child(39) { --star-tail-length: 5.34em; --top-offset: 39.17vh; --fall-duration: 9.65s; --fall-delay: 2.43s; }
+        .star:nth-child(40) { --star-tail-length: 6.73em; --top-offset: 54.01vh; --fall-duration: 8.27s; --fall-delay: 6.42s; }
+
+
+
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Modern Accordion</title>
+</head>
+<body>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+
+<div class="accordion" id="accordion">
+    <div class="accordion-content">
+        <header>
+            <span class="title">Introduction to Programming Concepts</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Learn foundational programming principles to build a solid coding base for further studies.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Setting Up Development Environments</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Set up IDEs for Python and Java to streamline coding and debugging processes.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Python Basics: Variables, Data Types, and Operators</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Master Python fundamentals for effective coding and data manipulation.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Control Structures in Python: Loops and Conditional Statements</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Utilize loops and conditionals in Python for efficient program control flow.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Functions and Modules in Python</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Organize code with functions and modules for better readability and reusability.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">File Handling and Exception Management in Python</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Manage files and handle exceptions in Python to ensure robust programs.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Object-Oriented Programming (OOP) in Python</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Implement OOP principles in Python for modular and maintainable code.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Data Structures and Algorithms in Python</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Explore data structures and algorithms to optimize code performance and efficiency.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Introduction to Java Syntax and Structure</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Understand Java's syntax and structure for seamless coding and readability.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Control Structures in Java: Loops and Conditionals</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Implement loops and conditionals in Java to control program execution flow.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Object-Oriented Programming (OOP) in Java</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Apply OOP concepts in Java to create organized and scalable code.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Java File Handling and Exception Management</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Handle files and manage exceptions in Java for reliable and error-free programs.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Multi-threading and Concurrency in Java</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Leverage multi-threading in Java for efficient and responsive applications.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Database Connectivity in Python and Java</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Connect Python and Java applications to databases for data storage and retrieval.
+        </p>
+    </div>
+    <div class="accordion-content">
+        <header>
+            <span class="title">Project Work: Creating Applications Using Python and Java</span>
+            <i class="fa-solid fa-plus"></i>
+        </header>
+        <p class="description">
+            Develop practical applications to consolidate Python and Java programming skills.
+        </p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    'use strict';
+
+    const accordionContent = document.querySelectorAll(".accordion-content");
+
+    accordionContent.forEach((item, index) => {
+        let header = item.querySelector("header");
+        header.addEventListener("click", () => {
+            item.classList.toggle("open");
+
+            let description = item.querySelector(".description");
+            if (item.classList.contains("open")) {
+                description.style.height = `${description.scrollHeight}px`;
+                item.querySelector("i").classList.replace("fa-plus", "fa-minus");
+            } else {
+                description.style.height = "0px";
+                item.querySelector("i").classList.replace("fa-minus", "fa-plus");
+            }
+            removeOpen(index);
+        });
+    });
+
+    function removeOpen(index1) {
+        accordionContent.forEach((item2, index2) => {
+            if (index1 != index2) {
+                item2.classList.remove("open");
+
+                let des = item2.querySelector(".description");
+                des.style.height = "0px";
+                item2.querySelector("i").classList.replace("fa-minus", "fa-plus");
+            }
+        });
+    }
+</script>
+</body>
