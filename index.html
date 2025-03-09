@@ -137,7 +137,31 @@ body {
 .button p {
     padding-left: 20px; /* Add space to the left of the <p> */
 }
+#star-field {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    animation: shootingStar 1s ease-out infinite;
+}
+
+@keyframes shootingStar {
+    0% {
+        transform: translateY(-1000px) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(1000px) translateX(500px);
+        opacity: 0;
+    }
+}
 
     </style>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -146,6 +170,7 @@ body {
 </head>
 
 <body>
+    <div id="star-field"></div>
    
     <h1 class="main-heading">"Discover a world of possibilities with our Computer Courses<br>
         where your journey to mastering technology begins." </h1>
@@ -207,7 +232,24 @@ body {
     <div class="button">
         please read the eligibity criteria of each course
     </div>
+    <br>
+    <br>
+     <script type="text/javascript">
+         function createStar() {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.top = `${Math.random() * window.innerHeight}px`;
+    star.style.left = `${Math.random() * window.innerWidth}px`;
+    document.getElementById('star-field').appendChild(star);
 
+    setTimeout(() => {
+        star.remove();
+    }, 1000);
+}
+
+setInterval(createStar, 100);
+
+     </script>
 </body>
 
 </html>
