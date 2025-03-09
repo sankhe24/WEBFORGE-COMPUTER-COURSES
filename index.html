@@ -15,7 +15,7 @@ html, body {
     display: flex;
     justify-content: start; /* Align content to the top */
     align-items: center;
-    background: url('./assets/images/night attractive picture.png') no-repeat center center fixed; /* Add your image path here */
+    background: url('./assets/images/night\ attractive\ picture.png') no-repeat center center fixed; /* Add your image path here */
     background-size: cover; /* Ensure the image covers the screen */
     background-color: orange;
     font-family: Arial, sans-serif;
@@ -41,7 +41,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    transform: rotate(0deg); /* No rotation */
+    transform: rotate(-45deg);
     z-index: -1;
 }
 
@@ -53,14 +53,15 @@ body {
     --fall-duration: 9s;
     --tail-fade-duration: var(--fall-duration);
     position: absolute;
-    top: 0; /* Start from the top */
-    left: var(--left-offset, 50%); /* Center the stars horizontally */
+    top: var(--top-offset);
+    left: 0;
     width: var(--star-tail-length);
     height: var(--star-tail-height);
     color: var(--star-color);
-    background: linear-gradient(to bottom, currentColor, transparent);
+    background: linear-gradient(45deg, currentColor, transparent);
     border-radius: 50%;
     filter: drop-shadow(0 0 6px currentColor);
+    transform: translate3d(104em, 0, 0);
     animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
 }
 
@@ -77,7 +78,7 @@ body {
 
 @keyframes fall {
     to {
-        transform: translateY(100vh); /* Falling to the bottom */
+        transform: translate3d(-30em, 0, 0);
     }
 }
 
@@ -108,17 +109,17 @@ body {
     left: calc(var(--star-width) / -2);
     width: var(--star-width);
     height: 100%;
-    background: linear-gradient(to bottom, transparent, currentColor, transparent);
+    background: linear-gradient(45deg, transparent, currentColor, transparent);
     border-radius: inherit;
     animation: blink 2s linear infinite;
 }
 
 .star::before {
-    transform: rotate(90deg); /* Vertical line */
+    transform: rotate(45deg);
 }
 
 .star::after {
-    transform: rotate(-90deg); /* Vertical line */
+    transform: rotate(-45deg);
 }
 
 @keyframes blink {
@@ -126,41 +127,6 @@ body {
         opacity: 0.6;
     }
 }
-
-/* Increase the number of stars */
-.star:nth-child(1) { --star-tail-length: 7.19em; --fall-duration: 9.245s; --fall-delay: 7.325s; }
-.star:nth-child(2) { --star-tail-length: 5.15em; --fall-duration: 7.223s; --fall-delay: 1.247s; }
-.star:nth-child(3) { --star-tail-length: 6.45em; --fall-duration: 11.089s; --fall-delay: 9.353s; }
-.star:nth-child(4) { --star-tail-length: 5.23em; --fall-duration: 11.088s; --fall-delay: 0.731s; }
-.star:nth-child(5) { --star-tail-length: 6.33em; --fall-duration: 9.477s; --fall-delay: 6.326s; }
-.star:nth-child(6) { --star-tail-length: 5.97em; --fall-duration: 6.165s; --fall-delay: 1.187s; }
-.star:nth-child(7) { --star-tail-length: 6.27em; --fall-duration: 9.19s; --fall-delay: 2.28s; }
-.star:nth-child(8) { --star-tail-length: 7.29em; --fall-duration: 7.852s; --fall-delay: 7.411s; }
-.star:nth-child(9) { --star-tail-length: 6.47em; --fall-duration: 10.843s; --fall-delay: 1.866s; }
-.star:nth-child(10) { --star-tail-length: 5.49em; --fall-duration: 8.765s; --fall-delay: 3.389s; }
-.star:nth-child(11) { --star-tail-length: 6.66em; --fall-duration: 6.566s; --fall-delay: 0.395s; }
-.star:nth-child(12) { --star-tail-length: 6.16em; --fall-duration: 9.432s; --fall-delay: 9.428s; }
-.star:nth-child(13) { --star-tail-length: 5.97em; --fall-duration: 8.192s; --fall-delay: 2.432s; }
-.star:nth-child(14) { --star-tail-length: 5.01em; --fall-duration: 11.942s; --fall-delay: 1.141s; }
-.star:nth-child(15) { --star-tail-length: 5.82em; --fall-duration: 10.972s; --fall-delay: 5.256s; }
-.star:nth-child(16) { --star-tail-length: 6.48em; --fall-duration: 8.055s; --fall-delay: 3.493s; }
-.star:nth-child(17) { --star-tail-length: 5.66em; --fall-duration: 7.298s; --fall-delay: 8.476s; }
-.star:nth-child(18) { --star-tail-length: 7.01em; --fall-duration: 7.174s; --fall-delay: 1.446s; }
-.star:nth-child(19) { --star-tail-length: 7.33em; --fall-duration: 8.257s; --fall-delay: 5.056s; }
-.star:nth-child(20) { --star-tail-length: 7.04em; --fall-duration: 6.773s; --fall-delay: 8.105s; }
-.star:nth-child(21) { --star-tail-length: 6.11em; --fall-duration: 7.667s; --fall-delay: 9.064s; }
-.star:nth-child(22) { --star-tail-length: 5.4em; --fall-duration: 7.619s; --fall-delay: 0.693s; }
-.star:nth-child(23) { --star-tail-length: 6.23em; --fall-duration: 7.819s; --fall-delay: 0.864s; }
-/* Additional stars */
-.star:nth-child(24) { --star-tail-length: 6.85em; --fall-duration: 8.21s; --fall-delay: 5.85s; }
-.star:nth-child(25) { --star-tail-length: 5.48em; --fall-duration: 11.76s; --fall-delay: 4.679s; }
-.star:nth-child(26) { --star-tail-length: 6.86em; --fall-duration: 8.784s; --fall-delay: 5.54s; }
-.star:nth-child(27) { --star-tail-length: 5.12em; --fall-duration: 9.61s; --fall-delay: 6.31s; }
-.star:nth-child(28) { --star-tail-length: 6.75em; --fall-duration: 10.12s; --fall-delay: 3.67s; }
-.star:nth-child(29) { --star-tail-length: 5.96em; --fall-duration: 8.34s; --fall-delay: 1.98s; }
-.star:nth-child(30) { --star-tail-length: 7.14em; --fall-duration: 11.08s; --fall-delay: 5.89s; }
-.star:nth-child(31) { --star-tail-length: 6.54em; --fall-duration: 7.79s; --fall-delay: 0.48s; }
-.star:nth-child(32) { --star-tail-length: 6.12em; --fall-duration: 9.56s
 
 .main-heading {
     text-align: center;
@@ -263,8 +229,6 @@ body {
     padding-left: 20px; /* Add space to the left of the <p> */
 }
 
-
-   
 
     </style>
     <link rel="preconnect" href="https://fonts.gstatic.com">
